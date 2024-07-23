@@ -1,0 +1,116 @@
+/* style.css */
+
+/* Define color variables */
+:root {
+    --background-color: #f0f0f0;
+    --main-background: #fff;
+    --screen-background: #e0e0e0;
+    --button-background: #f9f9f9;
+    --button-hover: #ddd;
+    --button-operator: #f0a500;
+    --button-operator-hover: #e09000;
+    --button-misc: #ff6b6b;
+    --button-misc-hover: #e55b5b;
+    --button-number: #fff;
+    --button-number-hover: #f5f5f5;
+    --text-color: #333;
+  }
+  
+  /* Basic reset and styling */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+  }
+  
+  h1.main-heading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Main container styling */
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: var(--main-background);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  /* Screen styling */
+  .screen {
+    width: 100%;
+    height: 60px;
+    background-color: var(--screen-background);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    box-sizing: border-box;
+  }
+  
+  /* Buttons container styling */
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 360px;
+  }
+  
+  /* Button styling */
+  button {
+    flex: 1 1 20%;
+    height: 60px;
+    font-size: 1.2rem;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button-background);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button:hover {
+    background-color: var(--button-hover);
+  }
+  
+  button.ope {
+    background-color: var(--button-operator);
+    color: white;
+  }
+  
+  button.ope:hover {
+    background-color: var(--button-operator-hover);
+  }
+  
+  button.misc {
+    background-color: var(--button-misc);
+    color: white;
+  }
+  
+  button.misc:hover {
+    background-color: var(--button-misc-hover);
+  }
+  
+  button.num {
+    background-color: var(--button-number);
+  }
+  
+  button.num:hover {
+    background-color: var(--button-number-hover);
+  }
+  
