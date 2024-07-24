@@ -44,7 +44,6 @@ console.log(buttonsArray);
 buttonsArray.forEach(button => {
     button.addEventListener("click", () => {
         let value = button.textContent.trim();
-        // let numOperations = [];
         if (value === "C") {
             screen.textContent = "0";
             numOperations = ["0"];
@@ -111,7 +110,14 @@ buttonsArray.forEach(button => {
             
 
             else if (value === "0") {
-                if (numOperations.length === 0 || numOperations.length === 2) {
+                if ((numOperations[0] === "0" && numOperations.length === 1)) {
+                    // do nothing
+                }
+
+                else if (numOperations[2] === "0" && numOperations.length === 3) {
+                    // do nothing
+                }
+                else if (numOperations.length === 0 || numOperations.length === 2) {
                     numOperations.push(value);
                     screen.textContent = value;
                     console.log(numOperations);
@@ -119,13 +125,13 @@ buttonsArray.forEach(button => {
 
                 else {
                     if (numOperations.length === 1) {
-                        numOperations[0] += value
+                        numOperations[0] += value;
                         screen.textContent = numOperations[0];
                         console.log(numOperations);
                     }
 
                     else if (numOperations.length === 3) {
-                        numOperations[2] += value
+                        numOperations[2] += value;
                         screen.textContent = numOperations[2];
                         console.log(numOperations);
                     }
