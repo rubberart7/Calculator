@@ -77,8 +77,23 @@ buttonsArray.forEach(button => {
             // if you hit an operator again make sure to push operator, evaluate the stuff before and then push it the evaluation to the front
 
             else if (['+', '-', '*', '/'].includes(value)) {
-                numOperations.push(value);
+                if (numOperations.length < 2) {
+                    numOperations.push(value);
+                    console.log(numOperations);
+                }
+
+                else {
+                    alert("Invalid Input");
+                }
+            }
+
+            else {
                 console.log(numOperations);
+                let result = operate(numOperations[0], numOperations[2], numOperations[1]);
+                numOperations.push(result);
+                numOperations.splice(0, 3);
+                screen.textContent = result;
+                console.log(`Result: ${result}`);
             }
             
             // else if (['+', '-', '*', '/'].includes(value)) {
