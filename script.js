@@ -108,9 +108,9 @@ buttonsArray.forEach(button => {
                 screen.textContent = result;
                 console.log(`Result: ${result}`);
             }
-            // final else, if you click equals it will perform the operation
+            
 
-            else if (value === 0) {
+            else if (value === "0") {
                 if (numOperations.length === 0 || numOperations.length === 2) {
                     numOperations.push(value);
                     screen.textContent = value;
