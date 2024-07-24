@@ -51,7 +51,7 @@ buttonsArray.forEach(button => {
         }
         else  {
             if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(value)) {
-                if (numOperations.length >= 1 && numOperations.length < 2) {
+                if (numOperations.length >= 0 && numOperations.length < 2) {
                     numOperations[0] += value;
                     screen.textContent = numOperations[0];
                     console.log(numOperations);
@@ -81,19 +81,16 @@ buttonsArray.forEach(button => {
 
                 else if (numOperations.length === 3) {
                     let result = operate(numOperations[0], numOperations[2], numOperations[1]);
+                    console.log(numOperations);
                     numOperations.splice(0, 3);
                     numOperations.push(result);
                     screen.textContent = result;
-                    console.log(numOperations);
                     numOperations.push(value);
                 }
 
-                else {
-                    alert("Invalid Input");
-                }
             }
 
-            else {
+            else if (value === "="){
                 console.log(numOperations);
                 let result = operate(numOperations[0], numOperations[2], numOperations[1]);
                 numOperations.push(result);
@@ -102,6 +99,13 @@ buttonsArray.forEach(button => {
                 console.log(`Result: ${result}`);
             }
             // final else, if you click equals it will perform the operation
+
+            else {
+                numOperations = [];
+                screen.textContent = "";
+                console.log(numOperations);
+            }
+            
             
         }
     });
