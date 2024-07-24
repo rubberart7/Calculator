@@ -79,6 +79,15 @@ buttonsArray.forEach(button => {
                     console.log(numOperations);
                 }
 
+                else if (numOperations.length === 3) {
+                    let result = operate(numOperations[0], numOperations[2], numOperations[1]);
+                    numOperations.splice(0, 3);
+                    numOperations.push(result);
+                    screen.textContent = result;
+                    console.log(numOperations);
+                    numOperations.push(value);
+                }
+
                 else {
                     alert("Invalid Input");
                 }
