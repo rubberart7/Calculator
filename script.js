@@ -51,27 +51,24 @@ buttonsArray.forEach(button => {
         }
         else  {
             if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(value)) {
-                if (numOperations.length < 2) {
+                if (numOperations.length >= 1 && numOperations.length < 2) {
                     numOperations[0] += value;
                     screen.textContent = numOperations[0];
                     console.log(numOperations);
                 }
 
+
                 else if (numOperations.length === 2){
                     numOperations.push(value);
+                    screen.textContent = value;
                     console.log(numOperations);
                 }
 
-                else {
+                else if (numOperations.length === 3) {
+                    numOperations[2] += value;
+                    screen.textContent = numOperations[2];
                     console.log(numOperations);
-                    let result = operate(numOperations[0], numOperations[2], numOperations[1]);
-                    console.log(`Result: ${result}`);
-                    screen.textContent = result;
-                    numOperations.splice(0, 3);
-                    numOperations.push(result);
-
                 }
-
             }
 
             // if you hit an operator again make sure to push operator, evaluate the stuff before and then push it the evaluation to the front
@@ -95,33 +92,8 @@ buttonsArray.forEach(button => {
                 screen.textContent = result;
                 console.log(`Result: ${result}`);
             }
+            // final else, if you click equals it will perform the operation
             
-            // else if (['+', '-', '*', '/'].includes(value)) {
-            //     if (numOperations.length < 3) {
-            //         numOperations.push(value);
-            //         console.log(numOperations);
-            //     }
-
-            //     else {
-            //         console.log(numOperations);
-            //         let result = operate(numOperations[0], numOperations[2], numOperations[1]);
-            //         console.log(`Result: ${result}`);
-            //         screen.textContent = result;
-            //         numOperations.splice(0, 3);
-            //         numOperations.push(result);
-
-            //     }
-                
-            // }
-            // else if (value === "=") {
-            //     console.log(numOperations);
-            //     let result = operate(numOperations[0], numOperations[2], numOperations[1]);
-            //     console.log(`Result: ${result}`);
-            //     screen.textContent = result;
-            //     numOperations.splice(0, 3);
-            //     numOperations.push(result);
-            //     console.log(numOperations);
-            // }
         }
     });
 });
