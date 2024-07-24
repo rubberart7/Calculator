@@ -36,28 +36,38 @@ function operate(operand1, operand2, operation) {
 
 const screen = document.querySelector(".screen");
 const buttonsArray = Array.from(document.querySelectorAll(".buttons button"));
-let numOperations = [""];
+let numOperations = ["0"];
+screen.textContent = numOperations[0];
 // select all of the buttons and put those button elments into an array
 console.log(buttonsArray);
 
 buttonsArray.forEach(button => {
     button.addEventListener("click", () => {
-        const value = button.textContent.trim();
+        let value = button.textContent.trim();
         // let numOperations = [];
         if (value === "C") {
-            screen.textContent = "";
-            numOperations = [];
+            screen.textContent = "0";
+            numOperations = ["0"];
             console.log(numOperations);
         }
         else  {
-            if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(value)) {
-                if (numOperations.length >= 0 && numOperations.length < 2) {
-                    numOperations[0] += value;
-                    screen.textContent = numOperations[0];
-                    console.log(numOperations);
+            if (["1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(value)) {
+                if (numOperations.length === 1) {
+                    if (numOperations[0] !== "0") {
+                        numOperations[0] += value;
+                        screen.textContent = numOperations[0];
+                        console.log(numOperations);
+                    }
+
+                    else if (numOperations[0] === "0"){
+                        console.log(numOperations);
+                        value = Number(value);
+                        value += Number(numOperations[0]);
+                        numOperations[0] = String(value);
+                        screen.textContent = value;
+                        console.log(numOperations);
+                    }
                 }
-
-
                 else if (numOperations.length === 2){
                     numOperations.push(value);
                     screen.textContent = value;
@@ -100,12 +110,33 @@ buttonsArray.forEach(button => {
             }
             // final else, if you click equals it will perform the operation
 
+            else if (value === 0) {
+                if (numOperations.length === 0 || numOperations.length === 2) {
+                    numOperations.push(value);
+                    screen.textContent = value;
+                    console.log(numOperations);
+                }
+
+                else {
+                    if (numOperations.length === 1) {
+                        numOperations[0] += value
+                        screen.textContent = numOperations[0];
+                        console.log(numOperations);
+                    }
+
+                    else if (numOperations.length === 3) {
+                        numOperations[2] += value
+                        screen.textContent = numOperations[2];
+                        console.log(numOperations);
+                    }
+                }
+            }
+
             else {
-                numOperations = [];
-                screen.textContent = "";
+                numOperations = ["0"];
+                screen.textContent = "0";
                 console.log(numOperations);
             }
-            
             
         }
     });
